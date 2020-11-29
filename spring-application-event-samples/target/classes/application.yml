@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: spring-application-event-samples
+  mandatory-file-encoding: utf-8
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+logging:
+  level:
+    root: info
+  file:
+    max-size: 15MB
+    name: spring-application-event-samples.log
+    path: logs
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss.SSS
+server:
+  port: 9092
+  undertow:
+    accesslog:
+      enabled: true
+      dir: undertow-access-logs
+      pattern: common
+      rotate: true
+      prefix: spring-application-event-samples-access-log.
+      suffix: log
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    shutdown:
+      enabled: true
